@@ -12,7 +12,7 @@ List items = [
   {
     "header": "Launch",
     "description":
-        "Давайте улучшать свои навыки вместе с e-Intellect прямо сейчас!",
+        "Давайте улучшать свои навыки вместе с Atlanta прямо сейчас!",
     "image": "assets/img/welcome3.svg"
   },
 ];

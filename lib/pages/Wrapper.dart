@@ -96,7 +96,7 @@ class _WrapperState extends State<Wrapper> {
                         ? Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SvgPicture.asset('assets/img/iconApp.svg'),
+                              SvgPicture.asset('assets/img/iconApp.svg' , width: marginScaleWC(40) ,),
                               SizedBox(
                                 width: marginScale(context, 15),
                               ),
@@ -108,7 +108,10 @@ class _WrapperState extends State<Wrapper> {
                             ],
                           )
                         : widget.numWidget == 1
-                            ? SvgPicture.asset('assets/img/homeIcon.svg')
+                            ? SvgPicture.asset(
+                                'assets/img/homeIcon.svg',
+                                width: marginScaleWC(142),
+                              )
                             : null),
             body: SingleChildScrollView(
                 child: Container(color: homeBg, child: widget.bodyWidget)),

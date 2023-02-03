@@ -107,7 +107,7 @@ class GlobalData with ChangeNotifier {
     notifyListeners();
   }
 
-  String title = 'e-Intellect';
+  String title = 'Atlanta';
   get getTitle => title;
   set setTitle(String text) {
     title = text;

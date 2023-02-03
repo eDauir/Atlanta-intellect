@@ -259,37 +259,11 @@ class _Reload extends State<Reload> with TickerProviderStateMixin {
                           SizedBox(),
                           Column(
                             children: [
-                              !myAnimationController!.isAnimating
-                                  ? Transform.scale(
-                                      scale: squareScaleB,
-                                      child: SvgPicture.asset(
+                               SvgPicture.asset(
                                         'assets/img/reloadIcon.svg',
-                                      ),
-                                    )
-                                  : ClipRRect(
-                                      child: Align(
-                                        alignment: Alignment.topCenter,
-                                        heightFactor: 1.0,
-                                        child: Container(
-                                          width: constraints.maxWidth,
-                                          height: constraints.maxHeight,
-                                          child: Transform.rotate(
-                                            angle: rotateValue!.value,
-                                            child: Transform.scale(
-                                              scale: scaleValue!.value,
-                                              child: SvgPicture.asset(
-                                                'assets/img/reloadIcon.svg',
-                                                // width: constraints.maxWidth,
-                                                // height: constraints.maxHeight,
-                                                // fit: BoxFit.contain,
-
-                                                // w
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                        width: marginScaleWC(120),
+                                      )
+                                  
                               // SizedBox(
                               //   height: 30,
                               // ),
@@ -312,9 +286,18 @@ class _Reload extends State<Reload> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: 210,
+                        height: 150,
                       ),
-                      SvgPicture.asset('assets/img/reloadText.svg'),
+                      Text(
+                        'Atlanta',
+                        style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.w700,
+                          color: colorWhite,
+                          fontFamily: 'MontserratAlternates',
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                       SizedBox(
                         height: 30,
                       ),

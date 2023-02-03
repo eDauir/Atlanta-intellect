@@ -56,10 +56,10 @@ class _AppState extends State<App> {
         }
       },
       child: MaterialApp.router(
-        localizationsDelegates:  context.localizationDelegates,
+        localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        
+
         // localizationsDelegates: [
         //       GlobalMaterialLocalizations.delegate,
         //       GlobalWidgetsLocalizations.delegate,
@@ -80,7 +80,7 @@ class _AppState extends State<App> {
         debugShowCheckedModeBanner: false,
         routeInformationProvider: goRouter.routeInformationProvider,
         scrollBehavior: MyCustomScrollBehavior(),
-        title: 'e-Intellect',
+        title: 'Atlanta',
       ),
     );
   }

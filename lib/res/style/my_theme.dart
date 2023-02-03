@@ -128,14 +128,14 @@ Color greys = Colors.grey.withOpacity(0.1);
 
 Color greysForText = HexColor('#808080');
 
-// Color primary_color = HexColor('#335EF7');
-Color primary_color = HexColor('#6F3DFF');
+//!! Color primary_color = HexColor('#335EF7');
+Color primary_color = HexColor('#00677D');
 
 // bg opacity
 Color bgPrimaryColor = primary_color.withOpacity(0.1);
 
 // Color primary_dark = HexColor('#335EF7');
-Color primary_dark = HexColor('#6F3DFF');
+Color primary_dark = primary_color;
 const Color primary_light = Colors.blue;
 
 Color black = HexColor('#202021');
@@ -177,7 +177,7 @@ Color lightGrey = HexColor('#DADADA');
 Color bgColor = HexColor('#FDFDFD');
 Color darkColor = HexColor('#2F2F2F');
 Color redColor = HexColor('#E74C3C');
-Color primary_opac = HexColor('#EAE2FF');
+Color primary_opac = primary_color.withOpacity(0.1);
 
 // ! LIGHT
 ThemeData light = ThemeData(
