@@ -1,0 +1,34 @@
+{
+    "bottom_bar_main" : "Басты бет",
+    "bottom_bar_search" : "Іздеу",
+    "bottom_bar_tarif" : "Тариф",
+    "bottom_bar_noty" : "Хабарлама",
+    "bottom_bar_account" : "Аккаунт",
+
+    "all" : "Барлығы",
+
+    "lang_ru" : "Орысша",
+    "lang_kz" : "Қазақша" ,
+
+    "our_courses" : "Біздің курстар",
+    "our_mentors" : "Біздің тәлімгерлер",
+    
+    "courses" : "Курстар",
+    "mentors" : "Тәлімгерлер" ,
+
+
+
+    "profile" : "Профиль" ,
+    "profile_courses" : "Менің курстарым" ,
+    "profile_favorite" : "Таңдаулылар" ,
+    "profile_wallet" : "Әмиян" ,
+    "profile_settings" : "Параметрлер" ,
+    "profile_about_app" : "Қосымша туралы" ,
+    "profile_help" : "Қолдау" ,
+    "profile_exit" : "Шығу" ,
+
+
+
+    "i_search" : "Мен іздеймін..."
+
+}

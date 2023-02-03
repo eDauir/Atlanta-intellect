@@ -1,0 +1,36 @@
+{
+    "bottom_bar_main" : "Главная",
+    "bottom_bar_search" : "Поиск",
+    "bottom_bar_tarif" : "Тариф",
+    "bottom_bar_noty" : "Уведомление",
+    "bottom_bar_account" : "Аккаунт",
+    
+    "all" : "Все",
+
+    "lang_ru" : "Русский",
+    "lang_kz" : "Казахский",
+    
+    "our_courses" : "Наши курсы",
+    "our_mentors" : "Наши менторы" ,
+
+
+    "courses" : "Курсы",
+    "mentors" : "Менторы" ,
+
+
+    "profile" : "Профиль" ,
+    "profile_courses" : "Мои курсы" ,
+    "profile_favorite" : "Избранные" ,
+    "profile_wallet" : "Баланс" ,
+    "profile_settings" : "Настройки" ,
+    "profile_about_app" : "О приложении" ,
+    "profile_help" : "Поддержки" ,
+    "profile_exit" : "Выйти" ,
+
+
+    
+
+    "i_search" : "Я ищу..."
+
+    
+}
