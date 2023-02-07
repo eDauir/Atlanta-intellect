@@ -4,6 +4,7 @@ import 'package:barber/pages/product_page/components/class_test.dart';
 import 'package:barber/res/style/my_theme.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
@@ -65,7 +66,7 @@ class _testWidgetState extends State<testWidget> {
       return Dialog(
         backgroundColor: Colors.transparent,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: marginScale(context, 15)),
+          padding: EdgeInsets.symmetric(horizontal: marginScale(context, 5)),
           decoration: BoxDecoration(
               color: colorWhite,
               borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -74,13 +75,19 @@ class _testWidgetState extends State<testWidget> {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: IconButton(
-                    splashRadius: 15,
-                    onPressed: () {
-                      Navigator.pop(context);
-                      context.read<Counter>().setReloadValue();
-                    },
-                    icon: Icon(Icons.close)),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 5),
+                  child: IconButton(
+                      splashRadius: 15,
+                      onPressed: () {
+                        Navigator.pop(context);
+                        context.read<Counter>().setReloadValue();
+                      },
+                      icon: SvgPicture.asset(
+                        'assets/img/close-circle.svg',
+                        color: greyColor,
+                      )),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: marginScale(context, 20)),
@@ -150,8 +157,9 @@ class _testWidgetState extends State<testWidget> {
                                 child: Text(
                                   context.read<Counter>().checkRes()
                                       ? 'Вы прошли тест'
-                                      : 'Вы не прошли тест',
+                                      : 'Вы не прошли тест.\nПопробуйте ещё раз!',
                                   style: Theme.of(context).textTheme.headline3,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               Text(
@@ -207,7 +215,7 @@ LinearPercentIndicator percent(BuildContext context, num length,
     animation: true,
     animationDuration: 1000,
     barRadius: Radius.circular(5),
-    width: MediaQuery.of(context).size.width * 0.6 / length,
+    width: MediaQuery.of(context).size.width * 0.65 / length,
     lineHeight: 10,
     percent: 0,
     backgroundColor: color != null ? color : Colors.grey.withOpacity(0.5),
@@ -253,9 +261,13 @@ class _testState extends State<test> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.only(
+              top: marginScale(context, 20),
+              bottom: marginScale(context, 10),
+            ),
             child: Text(
               'Вопрос ${widget.lengh + 1}:',
+              textScaleFactor: textScale(context),
               style: Theme.of(context)
                   .textTheme
                   .headline4!
@@ -264,10 +276,13 @@ class _testState extends State<test> {
           ),
           Text(
             widget.quest,
-            style: Theme.of(context).textTheme.headline4!.copyWith(),
+            textScaleFactor: textScale(context),
+            style: headLine5Reg,
           ),
           Container(
-            margin: EdgeInsets.only(top: 20, bottom: 20),
+            margin: EdgeInsets.only(
+              top: marginScaleWC(10),
+            ),
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
@@ -277,13 +292,13 @@ class _testState extends State<test> {
                 if (e.value.isTrue == '1') {
                   idRightAnswer = e.key.toString();
                 }
-                return showAnser(
-                    context, e.value.title ?? '', e.key.toString());
+                return showAnser(context, e.value.title ?? '', e.key.toString(),
+                    e.key == widget.answers.length - 1);
               }),
             ]),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.only(top: marginScaleWC(20)),
             child: ElevatedButton(
                 onPressed: () {
                   if (val == '-1') return;
@@ -305,20 +320,54 @@ class _testState extends State<test> {
     );
   }
 
-  ListTile showAnser(BuildContext context, title, valueAnswer) {
-    return ListTile(
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.headline4!.copyWith(),
-      ),
-      leading: Radio(
-        value: valueAnswer,
-        groupValue: val,
-        onChanged: (value) {
-          setState(() {
-            val = value!;
-          });
-        },
+  showAnser(BuildContext context, title, valueAnswer, [bool isLast = false]) {
+    selectAnswer(value) {
+      setState(() {
+        val = value;
+      });
+    }
+
+    return GestureDetector(
+      onTap: () => {selectAnswer(valueAnswer)},
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+                vertical: marginScaleWC(10), horizontal: marginScaleWC(15))
+            .copyWith(bottom: 0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Radio(
+                  visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity,
+                  ),
+                  // splashRadius: 0,
+                  value: valueAnswer,
+                  groupValue: val,
+                  fillColor: MaterialStateProperty.all(primary_color),
+                  onChanged: (value) {
+                    selectAnswer(value);
+                  },
+                ),
+                sizeWidth(10),
+                Flexible(
+                  child: Text(
+                    title,
+                    maxLines: 3,
+                    style: headLine5Reg,
+                  ),
+                )
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: marginScaleWC(12)),
+              width: double.infinity,
+              height: isLast ? 0 : 1,
+              color: greyColor,
+            )
+          ],
+        ),
       ),
     );
   }

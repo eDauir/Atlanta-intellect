@@ -160,7 +160,6 @@ class _ProductAppBarState extends State<ProductAppBar>
         labelColor: primary_color,
         unselectedLabelStyle: headLine4Reg!.copyWith(color: greyColor),
         labelStyle: Theme.of(context).textTheme.headline4,
-        
         indicator: BoxDecoration(
             border: Border(bottom: BorderSide(color: primary_color, width: 3))),
         indicatorSize: TabBarIndicatorSize.tab,
@@ -191,8 +190,10 @@ class _ProductAppBarState extends State<ProductAppBar>
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              icon:
-                                  SvgPicture.asset('assets/img/arrowBack.svg')),
+                              icon: SvgPicture.asset(
+                                'assets/img/arrowBack.svg',
+                                color: colorWhite,
+                              )),
                         ],
                       ),
                       floating: true,

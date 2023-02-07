@@ -9,7 +9,8 @@ class Privacy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: showAppBar(context, 'Политика конфиденциальности' , 'assets/img/close-circle.svg'),
+      appBar: showAppBar(context, 'Политика конфиденциальности',
+          'assets/img/close-circle.svg'),
       body: SingleChildScrollView(
           child: Column(children: [
         ...zhigit
@@ -30,7 +31,7 @@ class Privacy extends StatelessWidget {
               Text(
                 num,
                 textScaleFactor: textScale(context),
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.headline4,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5),
@@ -39,7 +40,7 @@ class Privacy extends StatelessWidget {
                   child: Text(
                     title,
                     textScaleFactor: textScale(context),
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                 ),
               ),
@@ -50,10 +51,8 @@ class Privacy extends StatelessWidget {
             child: Text(
               value,
               textScaleFactor: textScale(context),
-              style: headLine4Med.copyWith(
-                color: HexColor(
-                  '#808080',
-                ),
+              style: headLine5Reg.copyWith(
+                color: greyColor,
               ),
             ),
           )

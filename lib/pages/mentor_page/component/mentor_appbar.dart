@@ -33,8 +33,10 @@ class _MentorsAppBarState extends State<MentorsAppBar> {
                     child: Stack(children: [
                       CircleAvatar(
                         backgroundColor: greys,
-                        backgroundImage:
-                            NetworkImage(widget.mentorId.avatar ?? ''),
+                        backgroundImage: widget.mentorId.avatar != null
+                            ? NetworkImage(widget.mentorId.avatar ?? '')
+                            : AssetImage('assets/img/noAva.png')
+                                as ImageProvider<Object>?,
                         radius: 110,
                       ),
                     ]),
@@ -59,46 +61,54 @@ class _MentorsAppBarState extends State<MentorsAppBar> {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: IntrinsicHeight(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Column(
-                          children: [
-                            Text(
-                              widget.mentorId.courseCount ?? '',
-                              textScaleFactor: textScale(context),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline2!
-                                  .copyWith(color: primary_color),
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Text(
+                                  widget.mentorId.courseCount ?? '',
+                                  textScaleFactor: textScale(context),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline2!
+                                      .copyWith(color: primary_color),
+                                ),
+                                Text(
+                                  'Курсов',
+                                  textScaleFactor: textScale(context),
+                                  style: headLine5Reg,
+                                )
+                              ],
                             ),
-                            Text(
-                              'Курсов',
-                              textScaleFactor: textScale(context),
-                              style: headLine5Reg,
-                            )
-                          ],
+                          ),
                         ),
                         VerticalDivider(
                           thickness: 1,
                           width: 1,
                           color: Theme.of(context).dividerColor,
                         ),
-                        Column(
-                          children: [
-                            Text(
-                              widget.mentorId.ordersCount ?? '',
-                              textScaleFactor: textScale(context),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline2!
-                                  .copyWith(color: primary_color),
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Text(
+                                  widget.mentorId.ordersCount ?? '',
+                                  textScaleFactor: textScale(context),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline2!
+                                      .copyWith(color: primary_color),
+                                ),
+                                Text(
+                                  'Резидентов',
+                                  textScaleFactor: textScale(context),
+                                  style: headLine5Reg,
+                                )
+                              ],
                             ),
-                            Text(
-                              'Резидентов',
-                              textScaleFactor: textScale(context),
-                              style: headLine5Reg,
-                            )
-                          ],
+                          ),
                         ),
                         // VerticalDivider(
                         //   width: 1,

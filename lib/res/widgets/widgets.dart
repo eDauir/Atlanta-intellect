@@ -325,7 +325,7 @@ AppBar mainAppbar(BuildContext context,
       ),
     );
 
-AppBar showAppBar(context, text , [String? img ]) {
+AppBar showAppBar(context, text, [String? img]) {
   return AppBar(
     leading: Center(
       child: Row(
@@ -334,7 +334,7 @@ AppBar showAppBar(context, text , [String? img ]) {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: SvgPicture.asset( img ?? 'assets/img/arrowBack.svg')),
+              icon: SvgPicture.asset(img ?? 'assets/img/arrowBack.svg')),
         ],
       ),
     ),
@@ -402,6 +402,7 @@ cancelBtn(context, {String? text, Function? press, bool isShowPop = true}) {
   return ElevatedButton(
       style: ElevatedButton.styleFrom(
           backgroundColor: primary_opac,
+          shadowColor: primary_opac,
           foregroundColor: primary_color,
           elevation: 0),
       onPressed: () {

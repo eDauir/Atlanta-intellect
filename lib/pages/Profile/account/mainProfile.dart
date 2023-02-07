@@ -540,7 +540,6 @@ class _MainProdileState extends State<MainProdile> {
                                         .read<GlobalData>()
                                         .setLoginToken('');
                                     authToken = '';
-                                    mailStatus = false;
 
                                     context.go('/');
                                   },

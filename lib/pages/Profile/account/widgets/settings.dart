@@ -113,6 +113,7 @@ class _SettingsState extends State<Settings> {
                       fit: BoxFit.contain,
                       child: CupertinoSwitch(
                           value: isNotyState,
+                          activeColor: primary_color,
                           onChanged: (value) {
                             setState(() {
                               isNotyState = value;

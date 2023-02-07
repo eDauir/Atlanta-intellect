@@ -81,6 +81,9 @@ class _TarifPageState extends State<TarifPage> {
     return Container(
       margin: EdgeInsets.only(bottom: marginScaleWC(15)),
       child: TextButton(
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 0 , horizontal: marginScaleWC(15))
+        ),
         onPressed: () {
           String tokenLogin = context.read<GlobalData>().loginToken ?? '';
           if (tokenLogin.isEmpty) {

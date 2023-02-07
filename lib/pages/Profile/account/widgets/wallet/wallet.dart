@@ -179,55 +179,72 @@ class _WalletPageState extends State<WalletPage> {
                                           )
                                         : Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceAround,
                                             children: [
-                                              buildWalletBtn(
-                                                  context: context,
-                                                  title: 'Пополнить',
-                                                  chooseType: ChooseImage.green,
-                                                  color: colorsRed,
-                                                  onPress: () {
-                                                    showReplenish(
-                                                        context, getData);
-                                                    // Navigator.push(
-                                                    //     context,
-                                                    //     MaterialPageRoute(
-                                                    //         builder: (context) =>
-                                                    //             WalletTenge(
-                                                    //               setS: setS,
-                                                    //             )));
-                                                  }),
-                                              sizeWidth(15),
-                                              buildWalletBtn(
-                                                  context: context,
-                                                  title: 'Перевод',
-                                                  chooseType:
-                                                      ChooseImage.orange,
-                                                  onPress: () async {
-                                                    showModalTransfor(
-                                                        context, getData);
-                                                    // var res = await Navigator.push(
-                                                    //     context,
-                                                    //     MaterialPageRoute(
-                                                    //         builder: (context) =>
-                                                    //             WalletAddPage(
-                                                    //                 id: walletInfo
-                                                    //                     .first
-                                                    //                     .main
-                                                    //                     ?.first
-                                                    //                     .userId)));
-                                                    // getData(curPage, 'def');
-                                                  }),
-                                              sizeWidth(15),
-                                              buildWalletBtn(
-                                                  context: context,
-                                                  title: 'Вывод',
-                                                  chooseType: ChooseImage.red,
-                                                  color: colorsRed,
-                                                  onPress: () {
-                                                    showModalWalletOut(
-                                                        context, getData);
-                                                  }),
+                                              Expanded(
+                                                // flex: 2,
+                                                // fit: FlexFit.loose,
+                                                child: buildWalletBtn(
+                                                    context: context,
+                                                    title: 'Пополнить',
+                                                    chooseType:
+                                                        ChooseImage.green,
+                                                    color: colorsRed,
+                                                    onPress: () {
+                                                      showReplenish(
+                                                          context, getData);
+                                                      // Navigator.push(
+                                                      //     context,
+                                                      //     MaterialPageRoute(
+                                                      //         builder: (context) =>
+                                                      //             WalletTenge(
+                                                      //               setS: setS,
+                                                      //             )));
+                                                    }),
+                                              ),
+                                              // sizeWidth(15),
+                                              Expanded(
+                                                // flex: 2,
+                                                child: Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal:
+                                                          marginScaleWC(5)),
+                                                  child: buildWalletBtn(
+                                                      context: context,
+                                                      title: 'Перевод',
+                                                      chooseType:
+                                                          ChooseImage.orange,
+                                                      onPress: () async {
+                                                        showModalTransfor(
+                                                            context, getData);
+                                                        // var res = await Navigator.push(
+                                                        //     context,
+                                                        //     MaterialPageRoute(
+                                                        //         builder: (context) =>
+                                                        //             WalletAddPage(
+                                                        //                 id: walletInfo
+                                                        //                     .first
+                                                        //                     .main
+                                                        //                     ?.first
+                                                        //                     .userId)));
+                                                        // getData(curPage, 'def');
+                                                      }),
+                                                ),
+                                              ),
+                                              // sizeWidth(15),
+                                              Expanded(
+                                                // flex: 2,
+                                                // fit: FlexFit.tight,
+                                                child: buildWalletBtn(
+                                                    context: context,
+                                                    title: 'Вывод',
+                                                    chooseType: ChooseImage.red,
+                                                    color: colorsRed,
+                                                    onPress: () {
+                                                      showModalWalletOut(
+                                                          context, getData);
+                                                    }),
+                                              ),
                                             ],
                                           )
                                   ],
@@ -447,31 +464,35 @@ class _WalletPageState extends State<WalletPage> {
         break;
     }
 
-    return TextButton(
-      onPressed: () {
-        onPress();
-      },
-      child: Column(
-        children: [
-          Container(
-            width: marginScaleWC(54),
-            height: marginScaleWC(54),
-            decoration: BoxDecoration(
-                color: colorWhite,
-                borderRadius: BorderRadius.circular(marginScaleWC(50))),
-            child: Center(
-              child: SvgPicture.asset(img),
+    return Container(
+      // color: Colors.red,
+      child: TextButton(
+        style: TextButton.styleFrom(padding: EdgeInsets.zero),
+        onPressed: () {
+          onPress();
+        },
+        child: Column(
+          children: [
+            Container(
+              width: marginScaleWC(54),
+              height: marginScaleWC(54),
+              decoration: BoxDecoration(
+                  color: colorWhite,
+                  borderRadius: BorderRadius.circular(marginScaleWC(50))),
+              child: Center(
+                child: SvgPicture.asset(img),
+              ),
             ),
-          ),
-          sizeHeight(5),
-          Text(
-            title,
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(color: colorWhite),
-          )
-        ],
+            sizeHeight(5),
+            Text(
+              title,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline5!
+                  .copyWith(color: colorWhite),
+            )
+          ],
+        ),
       ),
     );
   }

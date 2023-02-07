@@ -141,7 +141,7 @@ class _ProductLessonsState extends State<ProductLessons> {
                 style: Theme.of(context)
                     .textTheme
                     .headline4!
-                    .copyWith(color: greys.withOpacity(0.8)),
+                    .copyWith(color: greyColor),
               ),
             ],
           ),

@@ -287,7 +287,7 @@ class _ProductPageState extends State<ProductPage> {
                                   if (widget.lessonCount != null)
                                     infoProduct(widget.lessonCount.toString(),
                                         'Уроков', 'assets/img/sort.svg'),
-                                  if (widget.durationLesson != null)
+                                  if (   products[0].orderCount != null  )
                                     Row(
                                       children: [
                                         Container(
@@ -299,10 +299,12 @@ class _ProductPageState extends State<ProductPage> {
                                           padding: EdgeInsets.symmetric(
                                               horizontal:
                                                   marginScale(context, 20)),
-                                          child: infoProduct(
-                                              '${(double.parse(widget.durationLesson ?? '0') / 60).toStringAsFixed(1)}',
-                                              'Часов',
-                                              'assets/img/clock.svg'),
+                                          child: 
+
+                                              infoProduct('${products[0].orderCount}',
+                                        'Резидентов', 'assets/img/people.svg'),
+
+
                                         ),
                                         Container(
                                           width: 1,
@@ -311,9 +313,11 @@ class _ProductPageState extends State<ProductPage> {
                                         )
                                       ],
                                     ),
-                                  if (products[0].orderCount != null)
-                                    infoProduct('${products[0].orderCount}',
-                                        'Резидентов', 'assets/img/people.svg'),
+                                  if (widget.durationLesson != null)
+                                    infoProduct(
+                                              '${(double.parse(widget.durationLesson ?? '0') / 60).toStringAsFixed(1)}',
+                                              'Часов',
+                                              'assets/img/clock.svg'),
                                 ],
                               ),
                       ),
@@ -324,11 +328,6 @@ class _ProductPageState extends State<ProductPage> {
                   padding: EdgeInsets.only(
                     bottom: marginScale(context, 50),
                     top: 5,
-                  ),
-                  child: Divider(
-                    thickness: 1,
-                    indent: 10,
-                    endIndent: 10,
                   ),
                 ),
               ],

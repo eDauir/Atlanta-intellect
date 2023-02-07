@@ -141,7 +141,7 @@ const Color primary_light = Colors.blue;
 Color black = HexColor('#202021');
 
 // TEXTFORMBG
-Color inputBg = HexColor('#6F3DFF');
+Color inputBg = HexColor('#00677D');
 
 // SCAFOLDBG
 Color scafoldBg = HexColor('#FDFDFD');

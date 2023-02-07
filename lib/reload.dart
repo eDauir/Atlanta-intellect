@@ -261,7 +261,7 @@ class _Reload extends State<Reload> with TickerProviderStateMixin {
                             children: [
                                SvgPicture.asset(
                                         'assets/img/reloadIcon.svg',
-                                        width: marginScaleWC(120),
+                                        width: MediaQuery.of(context).size.width * 0.75,
                                       )
                                   
                               // SizedBox(
@@ -279,40 +279,40 @@ class _Reload extends State<Reload> with TickerProviderStateMixin {
                     ),
                   ),
                 ),
-                Container(
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 150,
-                      ),
-                      Text(
-                        'Atlanta',
-                        style: TextStyle(
-                          fontSize: 36,
-                          fontWeight: FontWeight.w700,
-                          color: colorWhite,
-                          fontFamily: 'MontserratAlternates',
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      // Align(
-                      //   alignment: Alignment.bottomCenter,
-                      //   child: Padding(
-                      //     padding: EdgeInsets.only(bottom: 50),
-                      //     child: CircularProgressIndicator(
-                      //       color: colorWhite,
-                      //     ),
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                )
+                // Container(
+                //   width: double.infinity,
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.center,
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       SizedBox(
+                //         height: 150,
+                //       ),
+                //       Text(
+                //         'Atlanta',
+                //         style: TextStyle(
+                //           fontSize: 36,
+                //           fontWeight: FontWeight.w700,
+                //           color: colorWhite,
+                //           fontFamily: 'MontserratAlternates',
+                //         ),
+                //         textAlign: TextAlign.center,
+                //       ),
+                //       SizedBox(
+                //         height: 30,
+                //       ),
+                //       // Align(
+                //       //   alignment: Alignment.bottomCenter,
+                //       //   child: Padding(
+                //       //     padding: EdgeInsets.only(bottom: 50),
+                //       //     child: CircularProgressIndicator(
+                //       //       color: colorWhite,
+                //       //     ),
+                //       //   ),
+                //       // ),
+                //     ],
+                //   ),
+                // )
               ],
             ),
           ),

@@ -18,9 +18,10 @@ Widget noAds({required context, String? text, bool noText = true}) {
         height: 15,
       ),
       Text(
-        'Пусто',
+        'Здесь будут появляться уроки которые вы изучаете',
         textScaleFactor: textScale(context),
-        style: Theme.of(context).textTheme.headline3,
+        textAlign: TextAlign.center,
+        style: headLine4Reg,
       ),
       SizedBox(
         height: 15,
