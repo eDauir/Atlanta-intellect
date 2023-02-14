@@ -40,9 +40,7 @@ class _TarifPageState extends State<TarifPage> {
           sizeHeight(30),
           ...tarifs.asMap().entries.map((e) {
             return (buildItemForTarif(context,
-                bg: int.parse(e.value.price ?? '0') > 5000
-                    ? enumTarifBg.purple
-                    : enumTarifBg.orange,
+                bg: e.key == 1 ? enumTarifBg.purple : enumTarifBg.orange,
                 title: e.value.name ?? 'NON NAME',
                 text: e.value.about ??
                     'Неограниченный доступ ко всем курсам e-Club, включая выбранную вами программу, на целый год. Ежегодное автоматическое обновление подписки',
@@ -66,6 +64,18 @@ class _TarifPageState extends State<TarifPage> {
     String startColor = '';
     String endColor = '';
 
+    String textTime = '';
+
+    int timeInt = int.parse(time);
+
+    if (timeInt < 28) {
+      textTime = '${timeInt} дней';
+    } else if (timeInt >= 28 && timeInt <= 30) {
+      textTime = 'в месяц';
+    } else if (timeInt >= 365) {
+      textTime = 'в год';
+    }
+
     switch (bg) {
       case enumTarifBg.orange:
         startColor = '#FEB692';
@@ -82,8 +92,8 @@ class _TarifPageState extends State<TarifPage> {
       margin: EdgeInsets.only(bottom: marginScaleWC(15)),
       child: TextButton(
         style: TextButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 0 , horizontal: marginScaleWC(15))
-        ),
+            padding: EdgeInsets.symmetric(
+                vertical: 0, horizontal: marginScaleWC(15))),
         onPressed: () {
           String tokenLogin = context.read<GlobalData>().loginToken ?? '';
           if (tokenLogin.isEmpty) {
@@ -131,7 +141,7 @@ class _TarifPageState extends State<TarifPage> {
               ),
               sizeHeight(10),
               Text(
-                '$price ₸/$time',
+                '${MoneyFormat.get(price)} ₸/$textTime',
                 textScaleFactor: textScaleWC(),
                 style: Theme.of(context)
                     .textTheme

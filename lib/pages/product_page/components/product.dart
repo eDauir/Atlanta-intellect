@@ -83,6 +83,7 @@ class _ProductPageState extends State<ProductPage> {
                                             children: [
                                               VideoWidget(
                                                   isAutoPlayAndFull: true,
+                                                  
                                                   link:
                                                       products[0].intro ?? ''),
                                               Positioned(

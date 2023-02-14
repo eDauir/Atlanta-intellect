@@ -221,22 +221,38 @@ class _MainProdileState extends State<MainProdile> {
                     children: [
                       Stack(
                         children: [
-                          CircularProfileAvatar(
-                            '',
-                            child: imgUpdated == true
-                                ? Image.memory(
-                                    base64Decode(avatar!),
-                                    fit: BoxFit.cover,
-                                  )
-                                : Image.network(
-                                    avatar ?? '',
-                                    fit: BoxFit.cover,
-                                  ),
-                            radius: 50,
-                            imageFit: BoxFit.fill,
+                          Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 10,
+                                      color: Colors.black.withOpacity(0.25),
+                                      spreadRadius: 0)
+                                ],
+                              ),
+                              child: CircularProfileAvatar(
+                                '',
+                                backgroundColor: Colors.white,
+                                child: imgUpdated == true
+                                    ? Image.memory(
+                                        base64Decode(avatar!),
+                                        fit: BoxFit.fill,
+                                      )
+                                    : Image.network(
+                                        avatar ?? '',
+                                        fit: BoxFit.cover,
+                                      ),
+                                radius: 50,
+                                // imageFit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           Positioned(
-                              bottom: -2,
+                              bottom: 4,
                               right: 0,
                               child: IconButton(
                                 onPressed: () async {

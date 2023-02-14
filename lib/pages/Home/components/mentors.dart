@@ -56,11 +56,28 @@ class _MentorsState extends State<Mentors> {
             children: [
               CachedNetworkImage(
                 imageUrl: mentors[i].avatar ?? 'http://picsum.photos/200/300',
-                imageBuilder: (context, imageProvider) => CircleAvatar(
-                  backgroundColor: greys,
-                  backgroundImage: imageProvider,
-                  maxRadius: marginScale(context, 30),
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    boxShadow: mentors[i].avatar ==
+                            'https://atlanta.company/digway/images/noAva.png'
+                        ? [
+                            BoxShadow(
+                                blurRadius: 8.83,
+                                color: Colors.black.withOpacity(0.25),
+                                spreadRadius: 0)
+                          ]
+                        : null,
+                  ),
+                  child: CircleAvatar(
+                    foregroundColor: colorWhite,
+                    backgroundColor: colorWhite,
+                    backgroundImage: imageProvider,
+                    maxRadius: marginScale(context, 30),
+                  ),
                 ),
+                fit: BoxFit.cover,
                 placeholder: (context, url) => CircularProgressIndicator(),
               ),
               SizedBox(
@@ -94,7 +111,7 @@ class _MentorsState extends State<Mentors> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: ((context) => MoreMentors())));
                   //context.go('/search', extra: {'index': 1});
-                }, 
+                },
                 child: Text(
                   LocaleKeys.all.tr(),
                   textScaleFactor: textScale(context),

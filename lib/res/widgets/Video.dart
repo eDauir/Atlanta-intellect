@@ -21,6 +21,7 @@ class _VideoWidgetState extends State<VideoWidget> {
     await videoPlayerController.initialize();
     chewieController = ChewieController(
       videoPlayerController: videoPlayerController,
+      allowedScreenSleep : false ,
       // fullScreenByDefault: widget.isAutoPlayAndFull,
       autoPlay: widget.isAutoPlayAndFull,
     );
