@@ -110,7 +110,10 @@ class _MyCourseState extends State<MyCourse> with TickerProviderStateMixin {
                   child: Padding(
                     padding: EdgeInsets.only(top: marginScale(context, 20)),
                     child: workingLesson.isEmpty
-                        ? noAds(context: context, noText: false)
+                        ? noAds(
+                            context: context,
+                            noText: false,
+                            assets: "assets/img/welcome2.svg")
                         : Column(
                             children: [
                               ...workingLesson.map((e) => myCourse(
@@ -134,7 +137,10 @@ class _MyCourseState extends State<MyCourse> with TickerProviderStateMixin {
                   child: Padding(
                     padding: EdgeInsets.only(top: marginScale(context, 20)),
                     child: passedLesson.isEmpty
-                        ? noAds(context: context, noText: false)
+                        ? noAds(
+                            context: context,
+                            noText: false,
+                            assets: "assets/img/welcome2.svg")
                         : Column(
                             children: [
                               ...passedLesson.map((e) => myCourse(
@@ -285,7 +291,7 @@ class _MyCourseState extends State<MyCourse> with TickerProviderStateMixin {
       case 9:
         return Colors.green;
       case 10:
-        return Colors.blue;
+        return primary_color;
     }
   }
 }

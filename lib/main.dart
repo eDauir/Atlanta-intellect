@@ -141,7 +141,7 @@ Future<void> main() async {
   // Wakelock.toggle(enable: true);
   GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
 
-//  await initializeService();
+ await initializeService();
 
   runApp(EasyLocalization(
     supportedLocales: [Locale('ru'), Locale('kk')],

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:barber/api/Tarif/ITarif.dart';
 import 'package:barber/provider/globalData.dart';
 import 'package:barber/res/style/my_theme.dart';
@@ -6,6 +8,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+
+import 'dart:math' as math;
 
 enum enumTarifBg { purple, orange }
 
@@ -78,16 +82,17 @@ class _TarifPageState extends State<TarifPage> {
 
     switch (bg) {
       case enumTarifBg.orange:
-        startColor = '#FEB692';
-        endColor = '#EA5455';
+        startColor = '#65FDF0';
+        endColor = '#1D6FA3';
         break;
       case enumTarifBg.purple:
-        startColor = '#CE9FFC';
-        endColor = '#7367F0';
+        startColor = '#FFE985';
+        endColor = '#FA742B';
         break;
       default:
     }
 
+    var math;
     return Container(
       margin: EdgeInsets.only(bottom: marginScaleWC(15)),
       child: TextButton(
@@ -112,14 +117,16 @@ class _TarifPageState extends State<TarifPage> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(marginScaleWC(20)),
             gradient: LinearGradient(
-                colors: [
-                  HexColor(startColor),
-                  HexColor(endColor),
-                ],
-                begin: Alignment.topRight,
-                end: Alignment.bottomRight,
-                stops: [0.0, 1.0],
-                tileMode: TileMode.clamp),
+              colors: [
+                HexColor(startColor),
+                HexColor(endColor),
+              ],
+              begin: Alignment(-1.0, 0.0),
+              end: Alignment(1.0, 0.0),
+              stops: [0.0, 1.0],
+              transform: GradientRotation(pi / 2.8),
+              // tileMode: TileMode.clamp
+            ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

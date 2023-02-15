@@ -2,7 +2,7 @@ import 'package:barber/res/style/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-Widget noAds({required context, String? text, bool noText = true}) {
+Widget noAds({required context, String? text, bool noText = true , String ? assets}) {
   return Container(
       child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -11,7 +11,7 @@ Widget noAds({required context, String? text, bool noText = true}) {
         height: marginScale(context, 30),
       ),
       SvgPicture.asset(
-        'assets/img/noAds.svg',
+        assets ?? 'assets/img/noAds.svg',
         width: marginScale(context, 230),
       ),
       SizedBox(
